@@ -1,15 +1,12 @@
-package com.ironhack.ironbankeuge.DTO.AccountsDTO;
+package com.ironhack.ironbankeuge.DTO.accountsDTO;
 
-import com.ironhack.ironbankeuge.model.AccountStatus;
-import com.ironhack.ironbankeuge.model.Accounts.Checking;
-import com.ironhack.ironbankeuge.model.Accounts.CreditCard;
-import com.ironhack.ironbankeuge.model.Money;
-import com.ironhack.ironbankeuge.model.Users.AccountHolder;
+import com.ironhack.ironbankeuge.model.accounts.CreditCard;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,13 +1,6 @@
-package com.ironhack.ironbankeuge.DTO.AccountsDTO;
+package com.ironhack.ironbankeuge.DTO.accountsDTO;
 
-import com.ironhack.ironbankeuge.model.AccountStatus;
-import com.ironhack.ironbankeuge.model.Accounts.Checking;
-import com.ironhack.ironbankeuge.model.Accounts.Saving;
-import com.ironhack.ironbankeuge.model.Money;
-import com.ironhack.ironbankeuge.model.Users.AccountHolder;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
+import com.ironhack.ironbankeuge.model.accounts.Saving;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

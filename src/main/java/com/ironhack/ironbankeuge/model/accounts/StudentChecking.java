@@ -1,4 +1,4 @@
-package com.ironhack.ironbankeuge.model.Accounts;
+package com.ironhack.ironbankeuge.model.accounts;
 
 import com.ironhack.ironbankeuge.model.AccountStatus;
 import jakarta.persistence.*;

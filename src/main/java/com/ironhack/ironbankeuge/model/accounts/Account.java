@@ -1,23 +1,36 @@
-package com.ironhack.ironbankeuge.DTO.AccountsDTO;
+package com.ironhack.ironbankeuge.model.accounts;
 
 import com.ironhack.ironbankeuge.model.AccountStatus;
+import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import com.ironhack.ironbankeuge.model.Money;
-import com.ironhack.ironbankeuge.model.Users.AccountHolder;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public abstract class AccountDTO {
+@Entity
+public abstract class Account {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String secretKey;
+
+    @Embedded
     private Money balance;
+
     private String primaryOwner;
+
     private String secondaryOwner;
+
     private BigDecimal penaltyFee;
+
+    @ManyToOne
     private AccountHolder owner;
+
+    @Enumerated
     private AccountStatus accountStatus;
+
 }

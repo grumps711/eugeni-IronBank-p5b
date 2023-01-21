@@ -1,7 +1,6 @@
-package com.ironhack.ironbankeuge.model.Users;
+package com.ironhack.ironbankeuge.model.users;
 
-import com.ironhack.ironbankeuge.model.Accounts.Account;
-import com.ironhack.ironbankeuge.model.Users.User;
+import com.ironhack.ironbankeuge.model.accounts.Account;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Entity

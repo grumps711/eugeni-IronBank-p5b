@@ -1,4 +1,4 @@
-package com.ironhack.ironbankeuge.model.Users;
+package com.ironhack.ironbankeuge.model.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

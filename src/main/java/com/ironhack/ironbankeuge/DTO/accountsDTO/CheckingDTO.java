@@ -1,17 +1,13 @@
-package com.ironhack.ironbankeuge.DTO.AccountsDTO;
+package com.ironhack.ironbankeuge.DTO.accountsDTO;
 
-import com.ironhack.ironbankeuge.DTO.UsersDTO.AdminDTO;
-import com.ironhack.ironbankeuge.model.AccountStatus;
-import com.ironhack.ironbankeuge.model.Accounts.Checking;
-import com.ironhack.ironbankeuge.model.Money;
-import com.ironhack.ironbankeuge.model.Users.AccountHolder;
-import com.ironhack.ironbankeuge.model.Users.Admin;
+import com.ironhack.ironbankeuge.model.accounts.Checking;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

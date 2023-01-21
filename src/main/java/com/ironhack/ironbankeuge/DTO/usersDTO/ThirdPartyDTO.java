@@ -1,13 +1,11 @@
-package com.ironhack.ironbankeuge.DTO.UsersDTO;
+package com.ironhack.ironbankeuge.DTO.usersDTO;
 
-import com.ironhack.ironbankeuge.model.Users.Admin;
-import com.ironhack.ironbankeuge.model.Users.ThirdParty;
+import com.ironhack.ironbankeuge.model.users.ThirdParty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class ThirdPartyDTO extends UserDTO{
 

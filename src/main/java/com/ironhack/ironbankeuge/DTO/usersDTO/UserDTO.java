@@ -1,4 +1,4 @@
-package com.ironhack.ironbankeuge.DTO.UsersDTO;
+package com.ironhack.ironbankeuge.DTO.usersDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

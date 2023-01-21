@@ -1,6 +1,6 @@
 package com.ironhack.ironbankeuge.repository;
 
-import com.ironhack.ironbankeuge.model.Accounts.StudentChecking;
+import com.ironhack.ironbankeuge.model.accounts.StudentChecking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

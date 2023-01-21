@@ -1,19 +1,17 @@
-package com.ironhack.ironbankeuge.DTO.UsersDTO;
+package com.ironhack.ironbankeuge.DTO.usersDTO;
 
-import com.ironhack.ironbankeuge.model.Accounts.Account;
-import com.ironhack.ironbankeuge.model.Users.AccountHolder;
-import com.ironhack.ironbankeuge.model.Users.User;
+import com.ironhack.ironbankeuge.model.accounts.Account;
+import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class AccountHolderDTO extends UserDTO {
 
 //    accountholder
