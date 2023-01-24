@@ -27,9 +27,11 @@ public class AccountHolderDTO extends UserDTO {
 //        user
         accountHolderDTO.setFirstName(accountHolder.getFirstName());
         accountHolderDTO.setLastName(accountHolder.getLastName());
-        accountHolderDTO.setEmail(accountHolder.getEmail());
+        accountHolderDTO.setUsername(accountHolder.getUsername());
         accountHolderDTO.setPassword(accountHolder.getPassword());
         accountHolderDTO.setCreationDate(accountHolder.getCreationDate());
+        accountHolderDTO.setRoles(accountHolder.getRoles());
+        accountHolderDTO.setIsAccountNonLocked(accountHolder.getIsAccountNonLocked());
 //        account-holder
         accountHolderDTO.setDateOfBirth(accountHolder.getDateOfBirth());
         accountHolderDTO.setPrimaryAddress(accountHolder.getPrimaryAddress());

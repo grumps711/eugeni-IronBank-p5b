@@ -8,14 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
+
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 public class ThirdParty extends User{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    public ThirdParty(String firstName, String lastName, String username, String password, Instant creationDate, String roles) {
+        super(firstName, lastName, username, password, creationDate, "THIRD_PARTY");
+    }
 }

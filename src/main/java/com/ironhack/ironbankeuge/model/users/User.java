@@ -14,26 +14,26 @@ import java.time.Instant;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class User {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
-
     private String lastName;
-
-    private String email;
-
+    private String username;
     private String password;
-
     private Instant creationDate;
+    private String roles;
+    private Boolean isAccountNonLocked;
 
-    public User(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String username, String password, Instant creationDate, String roles) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.username = username;
         this.password = password;
+        this.creationDate = creationDate;
+        this.roles = roles;
+        this.isAccountNonLocked = true;
     }
 }
