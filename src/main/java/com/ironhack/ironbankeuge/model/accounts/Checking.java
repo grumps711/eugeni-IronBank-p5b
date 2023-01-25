@@ -2,6 +2,7 @@ package com.ironhack.ironbankeuge.model.accounts;
 
 import com.ironhack.ironbankeuge.model.AccountStatus;
 import com.ironhack.ironbankeuge.model.Money;
+import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,24 +13,16 @@ import java.util.Date;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 public class Checking extends Account{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private BigDecimal MinimumBalance;
 
     private BigDecimal MonthlyMaintenanceFee;
 
-    private Date CreationDate;
-
-    public Checking(Money minimumBalance, Money monthlyMaintenanceFee, Date creationDate, AccountStatus accountStatus) {
-        CreationDate = creationDate;
-        setPenaltyFee(BigDecimal.valueOf(40));
-        setMinimumBalance(BigDecimal.valueOf(250));
-        setMonthlyMaintenanceFee(BigDecimal.valueOf(12));
+    public Checking(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
+        super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner, accountStatus);
+        MinimumBalance = minimumBalance;
+        MonthlyMaintenanceFee = monthlyMaintenanceFee;
     }
 }

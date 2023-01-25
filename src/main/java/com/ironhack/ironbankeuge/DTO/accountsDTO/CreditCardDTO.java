@@ -24,7 +24,6 @@ public class CreditCardDTO extends AccountDTO{
         creditCardDTO.setPrimaryOwner(creditCard.getPrimaryOwner());
         creditCardDTO.setSecondaryOwner(creditCard.getSecondaryOwner());
         creditCardDTO.setPenaltyFee(creditCard.getPenaltyFee());
-        creditCardDTO.setOwner(creditCard.getOwner());
         creditCardDTO.setAccountStatus(creditCard.getAccountStatus());
 //        credit-card
         creditCardDTO.setCreditLimit(creditCard.getCreditLimit());

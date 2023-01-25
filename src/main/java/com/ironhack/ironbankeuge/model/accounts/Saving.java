@@ -1,6 +1,8 @@
 package com.ironhack.ironbankeuge.model.accounts;
 
 import com.ironhack.ironbankeuge.model.AccountStatus;
+import com.ironhack.ironbankeuge.model.Money;
+import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,21 +17,13 @@ import java.util.Date;
 @NoArgsConstructor
 public class Saving extends Account{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private BigDecimal minimumBalance;
-
-    private Date CreationDate;
 
     private BigDecimal interestRate;
 
-    public Saving(BigDecimal minimumBalance, Date creationDate, AccountStatus accountStatus, BigDecimal interestRate) {
+    public Saving(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, BigDecimal minimumBalance, BigDecimal interestRate) {
+        super(secretKey, "SAVING", balance, penaltyFee, primaryOwner, secondaryOwner, accountStatus);
         this.minimumBalance = minimumBalance;
-        CreationDate = creationDate;
         this.interestRate = interestRate;
-        setPenaltyFee(BigDecimal.valueOf(40));
-        setMinimumBalance(BigDecimal.valueOf(250));
     }
 }

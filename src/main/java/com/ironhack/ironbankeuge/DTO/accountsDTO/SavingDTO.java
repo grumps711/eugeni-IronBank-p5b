@@ -26,11 +26,9 @@ public class SavingDTO extends AccountDTO{
         savingDTO.setPrimaryOwner(saving.getPrimaryOwner());
         savingDTO.setSecondaryOwner(saving.getSecondaryOwner());
         savingDTO.setPenaltyFee(saving.getPenaltyFee());
-        savingDTO.setOwner(saving.getOwner());
         savingDTO.setAccountStatus(saving.getAccountStatus());
 //        saving
         savingDTO.setMinimumBalance(saving.getMinimumBalance());
-        savingDTO.setCreationDate(saving.getCreationDate());
         savingDTO.setInterestRate(saving.getInterestRate());
 
         return savingDTO;

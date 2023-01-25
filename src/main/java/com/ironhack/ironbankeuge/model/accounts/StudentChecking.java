@@ -1,6 +1,8 @@
 package com.ironhack.ironbankeuge.model.accounts;
 
 import com.ironhack.ironbankeuge.model.AccountStatus;
+import com.ironhack.ironbankeuge.model.Money;
+import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,18 +17,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class StudentChecking extends Account{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private Date creationDate;
-
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
 
-    public StudentChecking(Date creationDate, AccountStatus accountStatus) {
-        this.creationDate = creationDate;
-        this.accountStatus = accountStatus;
-        setPenaltyFee(BigDecimal.valueOf(40));
+    public StudentChecking(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, AccountStatus accountStatus1) {
+        super(secretKey, "STUDENT_CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner, accountStatus);
+        this.accountStatus = accountStatus1;
     }
 }

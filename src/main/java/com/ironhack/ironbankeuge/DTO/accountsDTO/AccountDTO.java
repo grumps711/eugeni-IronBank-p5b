@@ -12,12 +12,13 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class AccountDTO {
+public class AccountDTO {
+
     private String secretKey;
     private Money balance;
-    private String primaryOwner;
-    private String secondaryOwner;
+    private AccountHolder primaryOwner;
+    private AccountHolder secondaryOwner;
     private BigDecimal penaltyFee;
-    private AccountHolder owner;
+    private String accountType;
     private AccountStatus accountStatus;
 }

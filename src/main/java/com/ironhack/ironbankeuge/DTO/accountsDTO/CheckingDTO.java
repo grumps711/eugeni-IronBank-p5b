@@ -16,7 +16,6 @@ public class CheckingDTO extends AccountDTO{
 //    checking
     private BigDecimal MinimumBalance;
     private BigDecimal MonthlyMaintenanceFee;
-    private Date CreationDate;
 
     public CheckingDTO fromEntity(Checking checking){
         var checkingDTO = new CheckingDTO();
@@ -26,12 +25,10 @@ public class CheckingDTO extends AccountDTO{
         checkingDTO.setPrimaryOwner(checking.getPrimaryOwner());
         checkingDTO.setSecondaryOwner(checking.getSecondaryOwner());
         checkingDTO.setPenaltyFee(checking.getPenaltyFee());
-        checkingDTO.setOwner(checking.getOwner());
         checkingDTO.setAccountStatus(checking.getAccountStatus());
 //        checking
         checkingDTO.setMinimumBalance(checking.getMinimumBalance());
         checkingDTO.setMonthlyMaintenanceFee(checking.getMonthlyMaintenanceFee());
-        checkingDTO.setCreationDate(checking.getCreationDate());
 
         return checkingDTO;
     }

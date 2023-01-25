@@ -1,6 +1,7 @@
 package com.ironhack.ironbankeuge.controller;
 
 import com.ironhack.ironbankeuge.DTO.usersDTO.AdminDTO;
+import com.ironhack.ironbankeuge.model.users.Admin;
 import com.ironhack.ironbankeuge.model.users.User;
 import com.ironhack.ironbankeuge.service.AdminService;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +15,9 @@ public class AdminController {
 
     private final AdminService adminService;
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public User createAdmin(@RequestBody AdminDTO adminDTO){
-//        return adminService.createAdmin(adminDTO);
-//    }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Admin createAdmin(@RequestBody AdminDTO adminDTO){
+        return adminService.createAdmin(adminDTO);
+    }
 }

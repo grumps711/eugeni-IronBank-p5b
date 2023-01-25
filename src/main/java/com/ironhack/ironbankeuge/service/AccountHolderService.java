@@ -18,15 +18,20 @@ public class AccountHolderService {
     private final AccountHolderRepository accountHolderRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public User createAccountHolder(UserDTO userDTO) {
+    public AccountHolder createAccountHolder(AccountHolderDTO accountHolderDTO) {
         var accountHolder = new AccountHolder();
-        accountHolder.setFirstName(userDTO.getFirstName());
-        accountHolder.setLastName(userDTO.getLastName());
-        accountHolder.setUsername(userDTO.getUsername());
-        accountHolder.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        accountHolder.setFirstName(accountHolderDTO.getFirstName());
+        accountHolder.setLastName(accountHolderDTO.getLastName());
+        accountHolder.setUsername(accountHolderDTO.getUsername());
+        accountHolder.setPassword(passwordEncoder.encode(accountHolderDTO.getPassword()));
         accountHolder.setRoles("ROLE_USER");
-        accountHolder.setIsAccountNonLocked(userDTO.getIsAccountNonLocked());
-//        accountHolder.setDateOfBirth(userDTO);
+        accountHolder.setIsAccountNonLocked(true);
+        accountHolder.setDateOfBirth(accountHolderDTO.getDateOfBirth());
+        accountHolder.setPrimaryAddress(accountHolderDTO.getPrimaryAddress());
+        accountHolder.setMailingAddress(accountHolderDTO.getMailingAddress());
+        accountHolder.setAccountList(accountHolderDTO.getAccountList());
+        accountHolder.setSecondaryAccountList(accountHolderDTO.getSecondaryAccountList());
+
         return accountHolderRepository.save(accountHolder);
     }
 

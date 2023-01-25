@@ -14,8 +14,6 @@ public class UserDTO {
     private String lastName;
     private String username;
     private String password;
-    private Instant creationDate;
     private String roles;
-    private Boolean isAccountNonLocked;
 
 }

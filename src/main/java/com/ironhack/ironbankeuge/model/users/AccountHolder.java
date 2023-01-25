@@ -2,11 +2,9 @@ package com.ironhack.ironbankeuge.model.users;
 
 import com.ironhack.ironbankeuge.model.accounts.Account;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,10 +17,10 @@ public class AccountHolder extends User {
     private String primaryAddress;
     private String mailingAddress;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "primaryOwner")
     private List<Account> accountList;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "primaryOwner")
     private List<Account> secondaryAccountList;
 
     public AccountHolder(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String primaryAddress, String mailingAddress, List<Account> accountList, List<Account> secondaryAccountList) {

@@ -20,8 +20,8 @@ public class AccountHolderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User createAccountHolder(@RequestBody UserDTO userDTO){
-        return accountHolderService.createAccountHolder(userDTO);
+    public AccountHolder createAccountHolder(@RequestBody AccountHolderDTO accountHolderDTO){
+        return accountHolderService.createAccountHolder(accountHolderDTO);
     }
 
 //    @GetMapping("/getall")
