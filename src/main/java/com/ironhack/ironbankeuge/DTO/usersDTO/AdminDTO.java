@@ -16,7 +16,6 @@ public class AdminDTO extends UserDTO{
         adminDTO.setLastName(admin.getLastName());
         adminDTO.setUsername(admin.getUsername());
         adminDTO.setPassword(admin.getPassword());
-        adminDTO.setCreationDate(admin.getCreationDate());
         adminDTO.setRoles(admin.getRoles());
         adminDTO.setIsAccountNonLocked(admin.getIsAccountNonLocked());
 //        admin

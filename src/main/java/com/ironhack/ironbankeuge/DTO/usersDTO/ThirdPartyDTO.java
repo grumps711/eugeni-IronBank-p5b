@@ -17,7 +17,6 @@ public class ThirdPartyDTO extends UserDTO{
         thirdPartyDTO.setLastName(thirdParty.getLastName());
         thirdPartyDTO.setUsername(thirdParty.getUsername());
         thirdPartyDTO.setPassword(thirdParty.getPassword());
-        thirdPartyDTO.setCreationDate(thirdParty.getCreationDate());
         thirdPartyDTO.setRoles(thirdParty.getRoles());
         thirdPartyDTO.setIsAccountNonLocked(thirdParty.getIsAccountNonLocked());
 //        third-party

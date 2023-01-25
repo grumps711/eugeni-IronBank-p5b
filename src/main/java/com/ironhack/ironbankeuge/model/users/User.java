@@ -7,8 +7,10 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -23,16 +25,16 @@ public class User {
     private String lastName;
     private String username;
     private String password;
-    private Instant creationDate;
+    @CreationTimestamp
+    private LocalDateTime creationDate;
     private String roles;
     private Boolean isAccountNonLocked;
 
-    public User(String firstName, String lastName, String username, String password, Instant creationDate, String roles) {
+    public User(String firstName, String lastName, String username, String password, String roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.creationDate = creationDate;
         this.roles = roles;
         this.isAccountNonLocked = true;
     }

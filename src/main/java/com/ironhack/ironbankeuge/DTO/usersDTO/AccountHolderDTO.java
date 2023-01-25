@@ -22,6 +22,7 @@ public class AccountHolderDTO extends UserDTO {
     private List<Account> secondaryAccountList;
 
 
+
     public AccountHolderDTO fromEntity(AccountHolder accountHolder){
         var accountHolderDTO = new AccountHolderDTO();
 //        user
@@ -29,7 +30,6 @@ public class AccountHolderDTO extends UserDTO {
         accountHolderDTO.setLastName(accountHolder.getLastName());
         accountHolderDTO.setUsername(accountHolder.getUsername());
         accountHolderDTO.setPassword(accountHolder.getPassword());
-        accountHolderDTO.setCreationDate(accountHolder.getCreationDate());
         accountHolderDTO.setRoles(accountHolder.getRoles());
         accountHolderDTO.setIsAccountNonLocked(accountHolder.getIsAccountNonLocked());
 //        account-holder

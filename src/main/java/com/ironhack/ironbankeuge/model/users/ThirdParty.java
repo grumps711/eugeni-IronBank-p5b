@@ -15,7 +15,7 @@ import java.time.Instant;
 @NoArgsConstructor
 public class ThirdParty extends User{
 
-    public ThirdParty(String firstName, String lastName, String username, String password, Instant creationDate, String roles) {
-        super(firstName, lastName, username, password, creationDate, "THIRD_PARTY");
+    public ThirdParty(String firstName, String lastName, String username, String password, String roles) {
+        super(firstName, lastName, username, password, "THIRD_PARTY");
     }
 }

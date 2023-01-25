@@ -3,6 +3,7 @@ package com.ironhack.ironbankeuge.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +26,8 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/users/admin/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/user/accountholder").permitAll()
+                .requestMatchers(HttpMethod.POST, "/user/admin").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

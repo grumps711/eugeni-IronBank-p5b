@@ -8,7 +8,7 @@ import java.time.Instant;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class UserDTO {
+public class UserDTO {
 
     private String firstName;
     private String lastName;
