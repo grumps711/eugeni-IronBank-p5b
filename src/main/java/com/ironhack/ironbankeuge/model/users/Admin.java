@@ -11,6 +11,6 @@ import java.time.LocalDateTime;
 public class Admin extends User{
 
     public Admin(String firstName, String lastName, String username, String password, String roles) {
-        super(firstName, lastName, username, password, "ADMIN");
+        super(firstName, lastName, username, password, "ROLE_ADMIN");
     }
 }

@@ -16,6 +16,6 @@ import java.time.Instant;
 public class ThirdParty extends User{
 
     public ThirdParty(String firstName, String lastName, String username, String password, String roles) {
-        super(firstName, lastName, username, password, "THIRD_PARTY");
+        super(firstName, lastName, username, password, "ROLE_THIRD_PARTY");
     }
 }

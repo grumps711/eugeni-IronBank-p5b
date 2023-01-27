@@ -20,16 +20,15 @@ public class AccountHolder extends User {
     @OneToMany(mappedBy = "primaryOwner")
     private List<Account> accountList;
 
-    @OneToMany(mappedBy = "primaryOwner")
-    private List<Account> secondaryAccountList;
+    @OneToMany(mappedBy = "secondaryOwner")
+    private List<Account> Account;
 
-    public AccountHolder(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String primaryAddress, String mailingAddress, List<Account> accountList, List<Account> secondaryAccountList) {
-        super(firstName, lastName, username, password, "ACCOUNT_HOLDER");
+    public AccountHolder(String firstName, String lastName, String username, String password, LocalDate dateOfBirth, String primaryAddress, String mailingAddress, List<Account> accountList) {
+        super(firstName, lastName, username, password, "ROLE_ACCOUNT_HOLDER");
         this.dateOfBirth = dateOfBirth;
         this.primaryAddress = primaryAddress;
         this.mailingAddress = mailingAddress;
         this.accountList = accountList;
-        this.secondaryAccountList = secondaryAccountList;
     }
 
 }

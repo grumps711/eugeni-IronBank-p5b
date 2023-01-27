@@ -20,8 +20,8 @@ public class Checking extends Account{
 
     private BigDecimal MonthlyMaintenanceFee;
 
-    public Checking(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
-        super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner, accountStatus);
+    public Checking(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
+        super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner, AccountStatus.ACTIVE);
         MinimumBalance = minimumBalance;
         MonthlyMaintenanceFee = monthlyMaintenanceFee;
     }

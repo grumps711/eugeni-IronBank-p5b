@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
 public class User {
 
     @Id
@@ -29,6 +28,10 @@ public class User {
     private LocalDateTime creationDate;
     private String roles;
     private Boolean isAccountNonLocked;
+
+    public User() {
+        this.isAccountNonLocked=true;
+    }
 
     public User(String firstName, String lastName, String username, String password, String roles) {
         this.firstName = firstName;

@@ -21,6 +21,14 @@ public class AccountHolderDTO extends UserDTO {
     private List<Account> accountList;
     private List<Account> secondaryAccountList;
 
+    public AccountHolderDTO(String firstName, String lastName, String username, String password, String roles, LocalDate dateOfBirth, String primaryAddress, String mailingAddress, List<Account> accountList, List<Account> secondaryAccountList) {
+        super(firstName, lastName, username, password, roles);
+        this.dateOfBirth = dateOfBirth;
+        this.primaryAddress = primaryAddress;
+        this.mailingAddress = mailingAddress;
+        this.accountList = accountList;
+        this.secondaryAccountList = secondaryAccountList;
+    }
 
 
     public AccountHolderDTO fromEntity(AccountHolder accountHolder){
@@ -36,7 +44,6 @@ public class AccountHolderDTO extends UserDTO {
         accountHolderDTO.setPrimaryAddress(accountHolder.getPrimaryAddress());
         accountHolderDTO.setMailingAddress(accountHolder.getMailingAddress());
         accountHolderDTO.setAccountList(accountHolder.getAccountList());
-        accountHolderDTO.setSecondaryAccountList(accountHolder.getSecondaryAccountList());
 
         return accountHolderDTO;
     }

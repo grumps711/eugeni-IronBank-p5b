@@ -21,4 +21,5 @@ public class AccountDTO {
     private BigDecimal penaltyFee;
     private String accountType;
     private AccountStatus accountStatus;
+
 }
