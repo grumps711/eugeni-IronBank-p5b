@@ -1,5 +1,6 @@
 package com.ironhack.ironbankeuge.DTO.usersDTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ironhack.ironbankeuge.model.accounts.Account;
 import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ public class AccountHolderDTO extends UserDTO {
     private LocalDate dateOfBirth;
     private String primaryAddress;
     private String mailingAddress;
+    @JsonIgnore
     private List<Account> accountList;
     private List<Account> secondaryAccountList;
 

@@ -1,5 +1,6 @@
 package com.ironhack.ironbankeuge.controller;
 
+import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
 import com.ironhack.ironbankeuge.DTO.accountsDTO.CheckingDTO;
 import com.ironhack.ironbankeuge.DTO.usersDTO.AccountHolderDTO;
 import com.ironhack.ironbankeuge.model.accounts.Account;
@@ -21,13 +22,13 @@ public class CheckingController {
     private final CheckingService checkingService;
 
 
-    @PostMapping("/create/account/checking/{username}")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Checking updateAccountList (@PathVariable String username,
+    public Checking updateAccountList (
                                    @RequestBody
-                                   CheckingDTO checkingDTO
+                                   AccountValidationDTO accountValidationDTO
         ){
-        return checkingService.createChecking (username, checkingDTO);
+        return checkingService.createChecking (accountValidationDTO);
     }
 
 }

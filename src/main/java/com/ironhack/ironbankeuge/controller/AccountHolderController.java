@@ -41,14 +41,14 @@ public class AccountHolderController {
 
     @PatchMapping("/modify/{username}")
     public User updateAccountHolder (@PathVariable String username,
-                                     @RequestParam Optional<String> username1,
+                                   @RequestParam Optional<String> username1,
                                    @RequestParam Optional<String> firstName,
                                    @RequestParam Optional <String> lastName,
                                    @RequestParam Optional <String> roles,
-                                     @RequestParam Optional <String> password,
-                                 @RequestParam Optional <LocalDate> dateOfBirth,
-                                 @RequestParam Optional <String> mailingAddress,
-                                 @RequestParam Optional <String> primaryAddress,
+                                   @RequestParam Optional <String> password,
+                                   @RequestParam Optional <LocalDate> dateOfBirth,
+                                   @RequestParam Optional <String> mailingAddress,
+                                   @RequestParam Optional <String> primaryAddress,
                                    @RequestParam Optional <Boolean> isAccountNonLocked
                                    ){
         return accountHolderService.updateAccountHolder (username,username1,firstName, lastName, roles, isAccountNonLocked, password, dateOfBirth, mailingAddress, primaryAddress);

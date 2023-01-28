@@ -1,9 +1,27 @@
 package com.ironhack.ironbankeuge.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ironhack.ironbankeuge.DTO.accountsDTO.CheckingDTO;
+import com.ironhack.ironbankeuge.DTO.accountsDTO.CreditCardDTO;
+import com.ironhack.ironbankeuge.model.accounts.Checking;
+import com.ironhack.ironbankeuge.model.accounts.CreditCard;
+import com.ironhack.ironbankeuge.service.CreditCardService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/account/credit")
 public class CreditCardController {
+
+    private final CreditCardService creditCardService;
+
+    @PostMapping("/create/account/credit/{username}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public CreditCard updateAccountList (@PathVariable String username,
+                                         @RequestBody
+                                       CreditCardDTO creditDTO
+    ){
+        return creditCardService.createCredit (username, creditDTO);
+    }
 }
