@@ -1,5 +1,6 @@
 package com.ironhack.ironbankeuge.model.accounts;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ironhack.ironbankeuge.model.AccountStatus;
 import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import com.ironhack.ironbankeuge.model.Money;
@@ -34,21 +35,23 @@ public class Account {
     private BigDecimal penaltyFee;
 
     @ManyToOne
+    @JsonIgnore
     private AccountHolder primaryOwner;
 
     @ManyToOne
+    @JsonIgnore
     private AccountHolder secondaryOwner;
 
     @Enumerated
     private AccountStatus accountStatus;
 
-    public Account(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus) {
+    public Account(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner) {
         this.secretKey = secretKey;
         this.accountType = accountType;
         this.balance = balance;
         this.penaltyFee = penaltyFee;
         this.primaryOwner = primaryOwner;
         this.secondaryOwner = secondaryOwner;
-        this.accountStatus = accountStatus;
+        this.accountStatus = AccountStatus.ACTIVE;
     }
 }

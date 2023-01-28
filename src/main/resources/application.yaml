@@ -6,7 +6,7 @@ spring:
     password: 1r0nh4ck3r
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    show-sql: true # show the commands that are being executed
+    show-sql: false # show the commands that are being executed
     #    generate-ddl : true
     hibernate:
       ddl-auto: create # create, create-drop, validate, none, update ....

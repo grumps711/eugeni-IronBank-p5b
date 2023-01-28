@@ -22,7 +22,7 @@ public class Saving extends Account{
     private BigDecimal interestRate;
 
     public Saving(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, BigDecimal minimumBalance, BigDecimal interestRate) {
-        super(secretKey, "SAVING", balance, penaltyFee, primaryOwner, secondaryOwner, accountStatus);
+        super(secretKey, "SAVING", balance, penaltyFee, primaryOwner, secondaryOwner);
         this.minimumBalance = minimumBalance;
         this.interestRate = interestRate;
     }

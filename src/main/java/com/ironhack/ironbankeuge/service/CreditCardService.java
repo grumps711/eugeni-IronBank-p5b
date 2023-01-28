@@ -1,5 +1,6 @@
 package com.ironhack.ironbankeuge.service;
 
+import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
 import com.ironhack.ironbankeuge.DTO.accountsDTO.CreditCardDTO;
 import com.ironhack.ironbankeuge.model.accounts.CreditCard;
 import com.ironhack.ironbankeuge.repository.CreditCardRepository;
@@ -13,21 +14,20 @@ public class CreditCardService {
     private final AccountHolderService accountHolderService;
     private final CreditCardRepository creditCardRepository;
 
-    public CreditCard createCredit(String username, CreditCardDTO creditDTO) {
+    public CreditCard createCredit(AccountValidationDTO accountValidationDTO) {
         var creditCard = new CreditCard();
-        var accountHolderFound = accountHolderService.findAccountHolderByUsername(username);
+        var accountHolderFound = accountHolderService.findAccountHolderByUsername(accountValidationDTO.getUsername());
 
-        creditCard.setSecretKey(creditDTO.getSecretKey());
-        creditCard.setBalance(creditDTO.getBalance());
+        creditCard.setSecretKey(accountValidationDTO.getSecretKey());
+        creditCard.setBalance(accountValidationDTO.getBalance());
         creditCard.setPrimaryOwner(accountHolderFound);
 //        creditCard.setSecondaryOwner();
-        creditCard.setPenaltyFee(creditDTO.getPenaltyFee());
+        creditCard.setPenaltyFee(accountValidationDTO.getPenaltyFee());
         creditCard.setAccountType("CREDIT");
 //        creditCard.setAccountStatus(AccountStatus.ACTIVE);
-        creditCard.setCreditLimit(creditDTO.getCreditLimit());
-        creditCard.setInterestRate(creditDTO.getInterestRate());
+        creditCard.setCreditLimit(accountValidationDTO.getCreditLimit());
+        creditCard.setInterestRate(accountValidationDTO.getInterestRate());
 
         return creditCardRepository.save(creditCard);
-
     }
 }

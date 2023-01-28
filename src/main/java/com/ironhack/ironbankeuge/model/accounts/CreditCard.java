@@ -22,7 +22,7 @@ public class CreditCard extends Account{
     private BigDecimal interestRate;
 
     public CreditCard(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, BigDecimal creditLimit, BigDecimal interestRate) {
-        super(secretKey, "CREDIT", balance, penaltyFee, primaryOwner, secondaryOwner, accountStatus);
+        super(secretKey, "CREDIT", balance, penaltyFee, primaryOwner, secondaryOwner);
         this.creditLimit = creditLimit;
         this.interestRate = interestRate;
     }

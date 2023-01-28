@@ -1,5 +1,6 @@
 package com.ironhack.ironbankeuge.controller;
 
+import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
 import com.ironhack.ironbankeuge.DTO.accountsDTO.CheckingDTO;
 import com.ironhack.ironbankeuge.DTO.accountsDTO.CreditCardDTO;
 import com.ironhack.ironbankeuge.model.accounts.Checking;
@@ -16,12 +17,12 @@ public class CreditCardController {
 
     private final CreditCardService creditCardService;
 
-    @PostMapping("/create/account/credit/{username}")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public CreditCard updateAccountList (@PathVariable String username,
+    public CreditCard updateAccountList (
                                          @RequestBody
-                                       CreditCardDTO creditDTO
+                                         AccountValidationDTO accountValidationDTO
     ){
-        return creditCardService.createCredit (username, creditDTO);
+        return creditCardService.createCredit (accountValidationDTO);
     }
 }

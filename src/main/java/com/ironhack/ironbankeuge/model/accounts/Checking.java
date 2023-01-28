@@ -21,7 +21,7 @@ public class Checking extends Account{
     private BigDecimal MonthlyMaintenanceFee;
 
     public Checking(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
-        super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner, AccountStatus.ACTIVE);
+        super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner);
         MinimumBalance = minimumBalance;
         MonthlyMaintenanceFee = monthlyMaintenanceFee;
     }
