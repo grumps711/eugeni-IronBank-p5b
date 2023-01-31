@@ -21,7 +21,6 @@ public class AccountValidationDTO {
     private String secretKey;
     private Money balance;
     private AccountHolder primaryOwner;
-    private AccountHolder secondaryOwner;
     private BigDecimal penaltyFee;
     private BigDecimal minimumBalance;
     private BigDecimal monthlyMaintenanceFee;

@@ -1,5 +1,7 @@
 package com.ironhack.ironbankeuge.service;
 
+import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
+import com.ironhack.ironbankeuge.DTO.accountsDTO.TransferDTO;
 import com.ironhack.ironbankeuge.DTO.usersDTO.AccountHolderDTO;
 import com.ironhack.ironbankeuge.model.accounts.Account;
 import com.ironhack.ironbankeuge.model.users.AccountHolder;
@@ -73,5 +75,24 @@ public class AccountHolderService {
         accountList.ifPresent(accountHolderToUpdate::setAccountList);
 
         return accountHolderRepository.save(accountHolderToUpdate);
+    }
+
+    public AccountHolder transferFunds(TransferDTO transferDTO) {
+
+        var accountHolderToUpdate = findAccountHolderByUsername (transferDTO.getUsernameDestination());
+//        var accountToUpdate = accountHolderToUpdate.getAccountList().get();
+
+        return accountHolderToUpdate;
+    }
+
+
+    public AccountValidationDTO depositFunds(AccountValidationDTO accountValidationDTO) {
+
+        var accountHolderFound = findAccountHolderByUsername(accountValidationDTO.getUsername());
+        var accountFound = accountHolderFound.getAccountList().get();
+        return accountValidationDTO;
+    }
+
+    public AccountHolder withdrawFunds(AccountHolderDTO accountHolderDTO) {
     }
 }

@@ -5,6 +5,7 @@ import com.ironhack.ironbankeuge.model.AccountStatus;
 import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import com.ironhack.ironbankeuge.model.Money;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,15 +22,17 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String secretKey;
 
     @Embedded
     private Money balance;
 
-
+//1. validation instalado  2. @min @notnull etc. en atributos   3. que tenga el @valid en el endpoint
     @CreationTimestamp
     private Date CreationDate;
 
+    @NotNull
     private String accountType;
 
     private BigDecimal penaltyFee;
