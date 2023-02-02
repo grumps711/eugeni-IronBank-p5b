@@ -89,10 +89,10 @@ public class AccountHolderService {
     public AccountValidationDTO depositFunds(AccountValidationDTO accountValidationDTO) {
 
         var accountHolderFound = findAccountHolderByUsername(accountValidationDTO.getUsername());
-        var accountFound = accountHolderFound.getAccountList().get();
+//        var accountFound = accountHolderFound.getAccountList().get();
         return accountValidationDTO;
     }
 
-    public AccountHolder withdrawFunds(AccountHolderDTO accountHolderDTO) {
-    }
+//    public AccountHolder withdrawFunds(AccountHolderDTO accountHolderDTO) {
+//    }
 }
