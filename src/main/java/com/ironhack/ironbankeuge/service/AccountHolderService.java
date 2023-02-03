@@ -34,7 +34,7 @@ public class AccountHolderService {
         accountHolder.setDateOfBirth(accountHolderDTO.getDateOfBirth());
         accountHolder.setPrimaryAddress(accountHolderDTO.getPrimaryAddress());
         accountHolder.setMailingAddress(accountHolderDTO.getMailingAddress());
-        accountHolder.setAccountList(accountHolderDTO.getAccountList());
+        accountHolder.setAccountListAsPrimaryOwner(accountHolderDTO.getAccountList());
 
         return accountHolderRepository.save(accountHolder);
     }
@@ -72,7 +72,7 @@ public class AccountHolderService {
     public User updateAccountLists(String username, Optional<List<Account>> accountList) {
         var accountHolderToUpdate = findAccountHolderByUsername (username);
 
-        accountList.ifPresent(accountHolderToUpdate::setAccountList);
+        accountList.ifPresent(accountHolderToUpdate::setAccountListAsPrimaryOwner);
 
         return accountHolderRepository.save(accountHolderToUpdate);
     }

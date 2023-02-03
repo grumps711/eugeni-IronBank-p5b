@@ -19,20 +19,10 @@ import java.time.LocalDate;
 @Log
 @Profile("demo")
 public class DataLoader {
+
     private final AccountHolderRepository accountHolderRepository;
     private final AdminRepository adminRepository;
     private final PasswordEncoder passwordEncoder;
-
-
-
-
-
-
-
-
-
-
-
 
     @EventListener(ApplicationReadyEvent.class)
     public void storeUser() {
@@ -41,8 +31,8 @@ public class DataLoader {
         AccountHolder accountHolderTest = new AccountHolder(
                 "AccountHolder",
                 "Testing",
-                "accountholder",
-                passwordEncoder.encode("accountholder"),
+                "accountholdertest",
+                passwordEncoder.encode("accountholdertest"),
                 LocalDate.parse("2010-01-01"),
                 "Hamburger St.",
                 "Pickle Alley",

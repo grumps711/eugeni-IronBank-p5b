@@ -45,7 +45,7 @@ public class AccountHolderDTO extends UserDTO {
         accountHolderDTO.setDateOfBirth(accountHolder.getDateOfBirth());
         accountHolderDTO.setPrimaryAddress(accountHolder.getPrimaryAddress());
         accountHolderDTO.setMailingAddress(accountHolder.getMailingAddress());
-        accountHolderDTO.setAccountList(accountHolder.getAccountList());
+        accountHolderDTO.setAccountList(accountHolder.getAccountListAsPrimaryOwner());
 
         return accountHolderDTO;
     }
