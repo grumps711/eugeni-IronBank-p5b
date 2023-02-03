@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id

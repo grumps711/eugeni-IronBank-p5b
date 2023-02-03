@@ -16,7 +16,6 @@ import java.util.Date;
 @Data
 @Entity
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Account {
 
     @Id

@@ -1,6 +1,7 @@
 package com.ironhack.ironbankeuge.controller;
 
 import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
+import com.ironhack.ironbankeuge.DTO.accountsDTO.SavingDTO;
 import com.ironhack.ironbankeuge.model.accounts.CreditCard;
 import com.ironhack.ironbankeuge.model.accounts.Saving;
 import com.ironhack.ironbankeuge.service.CreditCardService;
@@ -20,9 +21,9 @@ public class SavingController {
     @ResponseStatus(HttpStatus.CREATED)
     public Saving updateAccountList (
             @RequestBody
-            AccountValidationDTO accountValidationDTO
+            SavingDTO savingDTO
     ){
-        return savingService.createSaving (accountValidationDTO);
+        return savingService.createSaving (savingDTO);
     }
 
 }

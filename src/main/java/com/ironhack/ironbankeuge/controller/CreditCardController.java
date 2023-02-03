@@ -21,8 +21,9 @@ public class CreditCardController {
     @ResponseStatus(HttpStatus.CREATED)
     public CreditCard updateAccountList (
                                          @RequestBody
-                                         AccountValidationDTO accountValidationDTO
+                                         CreditCardDTO creditCardDTO
     ){
-        return creditCardService.createCredit (accountValidationDTO);
+        return creditCardService.createCredit (creditCardDTO);
     }
+
 }

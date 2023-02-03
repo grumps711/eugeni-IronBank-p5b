@@ -35,6 +35,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/user/accountholder/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PATCH, "/user/accountholder/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/account/checking/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/account/saving/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/account/credit/**").hasRole("ADMIN")
 
                 .anyRequest()
                 .authenticated()

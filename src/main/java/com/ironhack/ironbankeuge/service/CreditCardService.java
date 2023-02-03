@@ -14,19 +14,19 @@ public class CreditCardService {
     private final AccountHolderService accountHolderService;
     private final CreditCardRepository creditCardRepository;
 
-    public CreditCard createCredit(AccountValidationDTO accountValidationDTO) {
+    public CreditCard createCredit(CreditCardDTO creditCardDTO) {
         var creditCard = new CreditCard();
-        var accountHolderFound = accountHolderService.findAccountHolderByUsername(accountValidationDTO.getUsername());
+        var accountHolderFound = accountHolderService.findAccountHolderByUsername(creditCardDTO.getPrimaryOwner().getUsername());
 
-        creditCard.setSecretKey(accountValidationDTO.getSecretKey());
-        creditCard.setBalance(accountValidationDTO.getBalance());
+        creditCard.setSecretKey(creditCardDTO.getSecretKey());
+        creditCard.setBalance(creditCardDTO.getBalance());
         creditCard.setPrimaryOwner(accountHolderFound);
 //        creditCard.setSecondaryOwner();
-        creditCard.setPenaltyFee(accountValidationDTO.getPenaltyFee());
+        creditCard.setPenaltyFee(creditCardDTO.getPenaltyFee());
         creditCard.setAccountType("CREDIT");
 //        creditCard.setAccountStatus(AccountStatus.ACTIVE);
-        creditCard.setCreditLimit(accountValidationDTO.getCreditLimit());
-        creditCard.setInterestRate(accountValidationDTO.getInterestRate());
+        creditCard.setCreditLimit(creditCardDTO.getCreditLimit());
+        creditCard.setInterestRate(creditCardDTO.getInterestRate());
 
         return creditCardRepository.save(creditCard);
     }
