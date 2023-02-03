@@ -3,15 +3,19 @@ package com.ironhack.ironbankeuge.service;
 import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
 import com.ironhack.ironbankeuge.DTO.accountsDTO.TransferDTO;
 import com.ironhack.ironbankeuge.DTO.usersDTO.AccountHolderDTO;
+import com.ironhack.ironbankeuge.model.AccountStatus;
 import com.ironhack.ironbankeuge.model.accounts.Account;
+import com.ironhack.ironbankeuge.model.accounts.Checking;
 import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import com.ironhack.ironbankeuge.model.users.User;
-import com.ironhack.ironbankeuge.repository.AccountHolderRepository;
+import com.ironhack.ironbankeuge.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.id.IdentifierGenerationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +26,12 @@ public class AccountHolderService {
 
     private final AccountHolderRepository accountHolderRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CheckingRepository checkingRepository;
+    private final SavingRepository savingRepository;
+    private final CreditCardRepository creditCardRepository;
+    private final AccountRepository accountRepository;
+
+
 
     public AccountHolder createAccountHolder(AccountHolderDTO accountHolderDTO) {
         var accountHolder = new AccountHolder();
@@ -86,13 +96,46 @@ public class AccountHolderService {
     }
 
 
-    public AccountValidationDTO depositFunds(AccountValidationDTO accountValidationDTO) {
 
-        var accountHolderFound = findAccountHolderByUsername(accountValidationDTO.getUsername());
-//        var accountFound = accountHolderFound.getAccountList().get();
-        return accountValidationDTO;
-    }
+
+    public void withdrawFunds(TransferDTO transferDTO) {
+
+        if(transferDTO.getAccountType()=="CHECKING"){
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+
+        } else if (transferDTO.getAccountType()=="SAVING") {
+            var savingToUpdate = savingRepository.findById(transferDTO.getAccountId());
+            savingToUpdate.ifPresent(saving -> {
+                saving.setBalance(saving.getBalance().subtract(transferDTO.getAmount()));
+                savingRepository.save(saving);
+            });
+//        } else if (transferDTO.getAccountType()=="CREDIT") {
+//            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+//            checkingToUpdate.ifPresent(checking -> {
+//                checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
+//                checkingRepository.save(checking);
+//            });
+        }}}
+
+
+
+//
+//    public Account depositFunds(TransferDTO transferDTO) {
+//        var accountToUpdate = findAccountById(transferDTO.getAccountId());
+//        accountToUpdate.setBalance(accountToUpdate.getBalance().add(transferDTO.getAmount()));
+//        return accountToUpdate;
+//    }
+//
+//    public Account findAccountById(Long id) {
+//        return accountRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Account not found with id: " + id));
+//    }
+
 
 //    public AccountHolder withdrawFunds(AccountHolderDTO accountHolderDTO) {
 //    }
-}
+//}
