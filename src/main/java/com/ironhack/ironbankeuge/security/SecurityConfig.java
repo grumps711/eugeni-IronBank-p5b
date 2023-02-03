@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/user/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PATCH, "/user/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/account/checking/create").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "/account/transaction/**").hasRole("ACCOUNT_HOLDER")
                 .requestMatchers(HttpMethod.PATCH, "/account/transaction/**").hasRole("ACCOUNT_HOLDER")
 
 
