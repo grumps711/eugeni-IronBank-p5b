@@ -13,6 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class AccountHolder extends User {
 
+
+
     private LocalDate dateOfBirth;
     private String primaryAddress;
     private String mailingAddress;

@@ -185,6 +185,34 @@ public class AccountHolderService {
             });
         }
     }
+
+    public void depositFundsThirdParty(TransferDTO transferDTO, String hashedKey) {
+
+
+
+
+        if(transferDTO.getAccountTypeDestination().equals("CHECKING")||transferDTO.getAccountTypeDestination().equals("STUDENT_CHECKING")){
+            var checkingToUpdate = checkingRepository.findCheckingBySecretKey(transferDTO.getSecretKey());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+
+        } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
+            var savingToUpdate = savingRepository.findById(transferDTO.getAccountIdDestination());
+            savingToUpdate.ifPresent(saving -> {
+                saving.setBalance(saving.getBalance().add(transferDTO.getAmount()));
+                savingRepository.save(saving);
+            });
+        } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountIdDestination());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+        }
+
+    }
 }
 
 //    public Account findAccountById(Long id) {

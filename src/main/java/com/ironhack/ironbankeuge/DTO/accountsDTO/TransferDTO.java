@@ -18,4 +18,5 @@ public class TransferDTO {
      private Long accountIdOrigin;
      private Long accountIdDestination;
      private BigDecimal amount;
+     private String hashedKey;
 }

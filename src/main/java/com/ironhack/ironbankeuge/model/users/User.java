@@ -40,4 +40,7 @@ public class User {
         this.roles = roles;
         this.isAccountNonLocked = true;
     }
+
+    public User(String role_third_party) {
+    }
 }

@@ -2,8 +2,10 @@ package com.ironhack.ironbankeuge.demo;
 
 import com.ironhack.ironbankeuge.model.users.AccountHolder;
 import com.ironhack.ironbankeuge.model.users.Admin;
+import com.ironhack.ironbankeuge.model.users.ThirdParty;
 import com.ironhack.ironbankeuge.repository.AccountHolderRepository;
 import com.ironhack.ironbankeuge.repository.AdminRepository;
+import com.ironhack.ironbankeuge.repository.ThirdPartyRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -22,6 +24,7 @@ public class DataLoader {
 
     private final AccountHolderRepository accountHolderRepository;
     private final AdminRepository adminRepository;
+    private final ThirdPartyRepository thirdPartyRepository;
     private final PasswordEncoder passwordEncoder;
 
     @EventListener(ApplicationReadyEvent.class)
@@ -50,6 +53,11 @@ public class DataLoader {
         );
         adminRepository.save(AdminTest);
         log.info("Admin user named " + AdminTest.getUsername() + " was created successfully");
+
+        ThirdParty thirdParty = new ThirdParty(
+                "ROLE_THIRD_PARTY");
+        thirdPartyRepository.save(thirdParty);
+        log.info("Third party user was created successfully");
 
         log.info("Finished demo user loading.");
     }

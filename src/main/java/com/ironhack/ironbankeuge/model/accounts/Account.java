@@ -19,13 +19,12 @@ import java.util.Date;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="checking_seq_gen")
-    @SequenceGenerator(name="checking_seq_gen", sequenceName="checking_sequence")
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_entity_seq_gen")
+    @SequenceGenerator(name="my_entity_seq_gen", sequenceName="MY_ENTITY_SEQ")
+    private long id;
 
     @NotNull
     private String secretKey;
-
 
     private BigDecimal balance;
 
