@@ -25,17 +25,18 @@ public class CheckingService {
     private final CheckingRepository checkingRepository;
     private final AccountHolderService accountHolderService;
 
-    public Checking createChecking(AccountValidationDTO accountValidationDTO) {
+    public Checking createChecking(CheckingDTO checkingDTO) {
 
         var checkingAccount = new Checking();
-        var accountHolderFound = accountHolderService.findAccountHolderByUsername(accountValidationDTO.getUsername());
+        var accountHolderFound = accountHolderService.findAccountHolderByUsername(checkingDTO.getPrimaryOwner().getUsername());
 
-        checkingAccount.setSecretKey(accountValidationDTO.getSecretKey());
-        checkingAccount.setBalance(accountValidationDTO.getBalance());
+        checkingAccount.setSecretKey(checkingDTO.getSecretKey());
+        checkingAccount.setBalance(checkingDTO.getBalance());
         checkingAccount.setPrimaryOwner(accountHolderFound);
 //        checkingAccount.setSecondaryOwner();
-        checkingAccount.setPenaltyFee(accountValidationDTO.getPenaltyFee());
+        checkingAccount.setPenaltyFee(checkingDTO.getPenaltyFee());
         checkingAccount.setAccountStatus(AccountStatus.ACTIVE);
+        checkingAccount.getPrimaryOwner().getDateOfBirth();
 
         if(isStudent(accountHolderFound)){
             checkingAccount.setAccountType("STUDENT_CHECKING");

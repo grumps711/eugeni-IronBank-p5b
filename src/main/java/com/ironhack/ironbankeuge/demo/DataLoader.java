@@ -12,6 +12,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 @RequiredArgsConstructor
 @Log
@@ -41,7 +43,7 @@ public class DataLoader {
                 "Testing",
                 "accountholder",
                 passwordEncoder.encode("accountholder"),
-                null,
+                LocalDate.parse("2010-01-01"),
                 "Hamburger St.",
                 "Pickle Alley",
                 null
@@ -52,8 +54,8 @@ public class DataLoader {
         Admin AdminTest = new Admin(
                 "Admin",
                 "Testing",
-                "admin",
-                passwordEncoder.encode("admin"),
+                "admintest",
+                passwordEncoder.encode("admintest"),
                 "ROLE_ADMIN"
         );
         adminRepository.save(AdminTest);

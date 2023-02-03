@@ -25,8 +25,8 @@ public class Account {
     @NotNull
     private String secretKey;
 
-    @Embedded
-    private Money balance;
+
+    private BigDecimal balance;
 
 //1. validation instalado  2. @min @notnull etc. en atributos   3. que tenga el @valid en el endpoint
     @CreationTimestamp
@@ -48,7 +48,7 @@ public class Account {
     @Enumerated
     private AccountStatus accountStatus;
 
-    public Account(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner) {
+    public Account(String secretKey, String accountType, BigDecimal balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner) {
         this.secretKey = secretKey;
         this.accountType = accountType;
         this.balance = balance;

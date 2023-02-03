@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class AccountDTO {
 
     private String secretKey;
-    private Money balance;
+    private BigDecimal balance;
     private AccountHolder primaryOwner;
     private AccountHolder secondaryOwner;
     private BigDecimal penaltyFee;

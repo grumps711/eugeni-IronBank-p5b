@@ -1,18 +1,13 @@
 package com.ironhack.ironbankeuge.controller;
 
-import com.ironhack.ironbankeuge.DTO.accountsDTO.AccountValidationDTO;
-import com.ironhack.ironbankeuge.DTO.accountsDTO.TransferDTO;
-import com.ironhack.ironbankeuge.DTO.usersDTO.AccountHolderDTO;
-import com.ironhack.ironbankeuge.model.users.AccountHolder;
-import com.ironhack.ironbankeuge.model.users.User;
 import com.ironhack.ironbankeuge.service.AccountHolderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/transfer")
-public class TransferController {
+@RequestMapping("/transaction")
+public class TransactionController {
 
     private final AccountHolderService accountHolderService;
 

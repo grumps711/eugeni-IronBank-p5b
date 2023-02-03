@@ -26,9 +26,9 @@ public class CheckingController {
     @ResponseStatus(HttpStatus.CREATED)
     public Checking updateAccountList (
                                    @RequestBody
-                                   AccountValidationDTO accountValidationDTO
+                                   CheckingDTO checkingDTO
         ){
-        return checkingService.createChecking (accountValidationDTO);
+        return checkingService.createChecking (checkingDTO);
     }
 
 }

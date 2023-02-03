@@ -19,7 +19,7 @@ public class AccountValidationDTO {
     private String accountType;
     private AccountStatus accountStatus;
     private String secretKey;
-    private Money balance;
+    private BigDecimal balance;
     private AccountHolder primaryOwner;
     private BigDecimal penaltyFee;
     private BigDecimal minimumBalance;

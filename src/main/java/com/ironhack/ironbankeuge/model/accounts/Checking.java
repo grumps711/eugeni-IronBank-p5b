@@ -17,15 +17,17 @@ import java.util.Date;
 @NoArgsConstructor
 public class Checking extends Account{
 
-    @NotNull
-    private BigDecimal MinimumBalance;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @NotNull
-    private BigDecimal MonthlyMaintenanceFee;
+    private BigDecimal minimumBalance;
 
-    public Checking(String secretKey, String accountType, Money balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
+    private BigDecimal monthlyMaintenanceFee;
+
+    public Checking(String secretKey, String accountType, BigDecimal balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
         super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner);
-        MinimumBalance = minimumBalance;
-        MonthlyMaintenanceFee = monthlyMaintenanceFee;
+        this.minimumBalance = minimumBalance;
+        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
     }
 }
