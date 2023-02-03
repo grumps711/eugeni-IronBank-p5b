@@ -188,9 +188,6 @@ public class AccountHolderService {
 
     public void depositFundsThirdParty(TransferDTO transferDTO, String hashedKey) {
 
-
-
-
         if(transferDTO.getAccountTypeDestination().equals("CHECKING")||transferDTO.getAccountTypeDestination().equals("STUDENT_CHECKING")){
             var checkingToUpdate = checkingRepository.findCheckingBySecretKey(transferDTO.getSecretKey());
             checkingToUpdate.ifPresent(checking -> {
@@ -199,13 +196,13 @@ public class AccountHolderService {
             });
 
         } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
-            var savingToUpdate = savingRepository.findById(transferDTO.getAccountIdDestination());
+            var savingToUpdate = savingRepository.findSavingBySecretKey(transferDTO.getSecretKey());
             savingToUpdate.ifPresent(saving -> {
                 saving.setBalance(saving.getBalance().add(transferDTO.getAmount()));
                 savingRepository.save(saving);
             });
         } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
-            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountIdDestination());
+            var checkingToUpdate = checkingRepository.findCheckingBySecretKey(transferDTO.getSecretKey());
             checkingToUpdate.ifPresent(checking -> {
                 checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
                 checkingRepository.save(checking);
@@ -213,7 +210,34 @@ public class AccountHolderService {
         }
 
     }
+
+    public void withdrawFundsThirdParty(TransferDTO transferDTO, String hashedKey) {
+
+        if(transferDTO.getAccountTypeDestination().equals("CHECKING")||transferDTO.getAccountTypeDestination().equals("STUDENT_CHECKING")){
+            var checkingToUpdate = checkingRepository.findCheckingBySecretKey(transferDTO.getSecretKey());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+
+        } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
+            var savingToUpdate = savingRepository.findSavingBySecretKey(transferDTO.getSecretKey());
+            savingToUpdate.ifPresent(saving -> {
+                saving.setBalance(saving.getBalance().subtract(transferDTO.getAmount()));
+                savingRepository.save(saving);
+            });
+        } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
+            var checkingToUpdate = checkingRepository.findCheckingBySecretKey(transferDTO.getSecretKey());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+        }
+    }
 }
+
+
+
 
 //    public Account findAccountById(Long id) {
 //        return accountRepository.findById(id)

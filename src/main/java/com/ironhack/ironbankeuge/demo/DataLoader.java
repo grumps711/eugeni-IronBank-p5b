@@ -55,7 +55,8 @@ public class DataLoader {
         log.info("Admin user named " + AdminTest.getUsername() + " was created successfully");
 
         ThirdParty thirdParty = new ThirdParty(
-                "ROLE_THIRD_PARTY");
+                "ROLE_THIRD_PARTY",
+                "abcdefg123456");
         thirdPartyRepository.save(thirdParty);
         log.info("Third party user was created successfully");
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user/thirdparty")
+@RequestMapping("/thirdparty")
 public class ThirdPartyController {
 
 
@@ -18,18 +18,20 @@ public class ThirdPartyController {
     //que exista la hashedkey y que tenga autorización
     //tambien pasarle el balance que va a tocar
 
-    @PatchMapping("/deposit/")
+    @PatchMapping("/deposit")
     public void depositFundsThirdParty(
-            @RequestParam String hashedKey,
-            @RequestBody TransferDTO transferDTO
+//            @RequestParam String hashedKey,
+            @RequestBody TransferDTO transferDTO,
+             @RequestParam String hashedKey
         ){
         accountHolderService.depositFundsThirdParty(transferDTO, hashedKey);
     }
 
-    @PatchMapping("/withdraw/")
-    public void withdrawFunds (
-            @RequestBody TransferDTO transferDTO
+    @PatchMapping("/withdraw")
+    public void withdrawFundsThirdParty (
+            @RequestBody TransferDTO transferDTO,
+            @RequestParam String hashedKey
     ){
-        accountHolderService.withdrawFunds(transferDTO);
+        accountHolderService.withdrawFundsThirdParty(transferDTO, hashedKey);
     }
 }

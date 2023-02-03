@@ -15,10 +15,12 @@ import java.time.Instant;
 @NoArgsConstructor
 public class ThirdParty extends User{
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String hashedKey;
 
     public ThirdParty(String roles) {
         super("ROLE_THIRD_PARTY");
+    }
+
+    public ThirdParty(String role_third_party, String hashedKey) {
     }
 }

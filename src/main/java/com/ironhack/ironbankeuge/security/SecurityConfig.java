@@ -31,8 +31,12 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/user/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PATCH, "/user/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/account/checking/create").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.GET, "/account/transaction/**").hasRole("ACCOUNT_HOLDER")
-                .requestMatchers(HttpMethod.PATCH, "/account/transaction/**").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.GET, "/account/transaction/getallacounts/{username}").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PATCH, "/account/transaction/transfer").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PATCH, "/account/transaction/deposit").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PATCH, "/account/transaction/withdraw").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PATCH, "/thirdparty/deposit").permitAll()
+                .requestMatchers(HttpMethod.PATCH, "/thirdparty/withdraw").permitAll()
 
 
                 .anyRequest()
