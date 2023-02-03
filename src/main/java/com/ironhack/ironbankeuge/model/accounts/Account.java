@@ -16,10 +16,12 @@ import java.util.Date;
 @Data
 @Entity
 @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="checking_seq_gen")
+    @SequenceGenerator(name="checking_seq_gen", sequenceName="checking_sequence")
     private Long id;
 
     @NotNull

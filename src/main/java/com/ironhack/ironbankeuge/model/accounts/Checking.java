@@ -17,10 +17,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class Checking extends Account{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private BigDecimal minimumBalance;
 
     private BigDecimal monthlyMaintenanceFee;
