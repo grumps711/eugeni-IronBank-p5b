@@ -119,16 +119,36 @@ public class AccountHolderService {
                 checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
                 checkingRepository.save(checking);
             });
-        }}}
+        }
+    }
 
 
 
 
-//    public Account depositFunds(TransferDTO transferDTO) {
-//        var accountToUpdate = findAccountById(transferDTO.getAccountId());
-//        accountToUpdate.setBalance(accountToUpdate.getBalance().add(transferDTO.getAmount()));
-//        return accountToUpdate;
-//    }
+    public void depositFunds(TransferDTO transferDTO) {
+
+        if(transferDTO.getAccountType().equals("CHECKING")||transferDTO.getAccountType().equals("STUDENT_CHECKING")){
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+
+        } else if (transferDTO.getAccountType().equals("SAVING")) {
+            var savingToUpdate = savingRepository.findById(transferDTO.getAccountId());
+            savingToUpdate.ifPresent(saving -> {
+                saving.setBalance(saving.getBalance().add(transferDTO.getAmount()));
+                savingRepository.save(saving);
+            });
+        } else if (transferDTO.getAccountType().equals("CREDIT")) {
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+            checkingToUpdate.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+        }
+    }
+}
 
 //    public Account findAccountById(Long id) {
 //        return accountRepository.findById(id)

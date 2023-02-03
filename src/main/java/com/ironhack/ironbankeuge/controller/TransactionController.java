@@ -26,16 +26,15 @@ public class TransactionController {
 //        return accountHolderService.transferFunds (transferDTO);
 //    }
 //
-//    @PatchMapping("/deposit")
-//    public AccountHolder depositFunds(
-//            @RequestBody AccountValidationDTO accountValidationDTO
-//            ){
-//        return accountHolderService.depositFunds(accountValidationDTO);
-//    }
+    @PatchMapping("/deposit/")
+    public void depositFunds(
+            @RequestBody TransferDTO transferDTO
+            ){
+        accountHolderService.depositFunds(transferDTO);
+    }
 
     @PatchMapping("/withdraw/")
     public void withdrawFunds (
-
             @RequestBody TransferDTO transferDTO
             ){
         accountHolderService.withdrawFunds(transferDTO);
