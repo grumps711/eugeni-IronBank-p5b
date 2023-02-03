@@ -19,13 +19,13 @@ public class TransactionController {
     private final AccountHolderService accountHolderService;
     private final AccountService accountService;
 
-//    @PatchMapping("/transfer")
-//    public AccountHolder transferFunds (
-//            @RequestBody TransferDTO transferDTO
-//    ){
-//        return accountHolderService.transferFunds (transferDTO);
-//    }
-//
+    @PatchMapping("/transfer")
+    public void transferFunds (
+            @RequestBody TransferDTO transferDTO
+    ){
+        accountHolderService.transferFunds (transferDTO);
+    }
+
     @PatchMapping("/deposit/")
     public void depositFunds(
             @RequestBody TransferDTO transferDTO

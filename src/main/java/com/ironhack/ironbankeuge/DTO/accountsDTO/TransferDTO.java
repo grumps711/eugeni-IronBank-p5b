@@ -10,10 +10,12 @@ import java.math.BigDecimal;
 @Data
 public class TransferDTO {
 
-    private String accountType;
+    private String accountTypeOrigin;
+    private String accountTypeDestination;
     private String secretKey;
     private String usernameOrigin;
     private String usernameDestination;
-     private Long accountId;
+     private Long accountIdOrigin;
+     private Long accountIdDestination;
      private BigDecimal amount;
 }

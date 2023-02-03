@@ -87,12 +87,49 @@ public class AccountHolderService {
         return accountHolderRepository.save(accountHolderToUpdate);
     }
 
-    public AccountHolder transferFunds(TransferDTO transferDTO) {
+    public void transferFunds(TransferDTO transferDTO) {
 
-        var accountHolderToUpdate = findAccountHolderByUsername (transferDTO.getUsernameDestination());
-//        var accountToUpdate = accountHolderToUpdate.getAccountList().get();
+        if(transferDTO.getAccountTypeOrigin().equals("CHECKING")||transferDTO.getAccountTypeOrigin().equals("STUDENT_CHECKING")){
+            var checkingOrigin = checkingRepository.findById(transferDTO.getAccountIdOrigin());
+            checkingOrigin.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
 
-        return accountHolderToUpdate;
+        } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
+            var savingOrigin = savingRepository.findById(transferDTO.getAccountIdOrigin());
+            savingOrigin.ifPresent(saving -> {
+                saving.setBalance(saving.getBalance().subtract(transferDTO.getAmount()));
+                savingRepository.save(saving);
+            });
+        } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
+            var checkingOrigin = checkingRepository.findById(transferDTO.getAccountIdOrigin());
+            checkingOrigin.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+        }
+        
+        if(transferDTO.getAccountTypeDestination().equals("CHECKING")||transferDTO.getAccountTypeDestination().equals("STUDENT_CHECKING")){
+            var checkingDestination = checkingRepository.findById(transferDTO.getAccountIdDestination());
+            checkingDestination.ifPresent(checking -> {
+                checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
+                checkingRepository.save(checking);
+            });
+
+        } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
+            var savingDestination = savingRepository.findById(transferDTO.getAccountIdDestination());
+            savingDestination.ifPresent(saving -> {
+                saving.setBalance(saving.getBalance().add(transferDTO.getAmount()));
+                savingRepository.save(saving);
+            });
+        } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
+            var creditDestination = checkingRepository.findById(transferDTO.getAccountIdDestination());
+            creditDestination.ifPresent(credit -> {
+                credit.setBalance(credit.getBalance().add(transferDTO.getAmount()));
+                checkingRepository.save(credit);
+            });
+        }
     }
 
 
@@ -100,21 +137,21 @@ public class AccountHolderService {
 
     public void withdrawFunds(TransferDTO transferDTO) {
 
-        if(transferDTO.getAccountType().equals("CHECKING")||transferDTO.getAccountType().equals("STUDENT_CHECKING")){
-            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+        if(transferDTO.getAccountTypeDestination().equals("CHECKING")||transferDTO.getAccountTypeDestination().equals("STUDENT_CHECKING")){
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountIdDestination());
             checkingToUpdate.ifPresent(checking -> {
                 checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
                 checkingRepository.save(checking);
             });
 
-        } else if (transferDTO.getAccountType().equals("SAVING")) {
-            var savingToUpdate = savingRepository.findById(transferDTO.getAccountId());
+        } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
+            var savingToUpdate = savingRepository.findById(transferDTO.getAccountIdDestination());
             savingToUpdate.ifPresent(saving -> {
                 saving.setBalance(saving.getBalance().subtract(transferDTO.getAmount()));
                 savingRepository.save(saving);
             });
-        } else if (transferDTO.getAccountType().equals("CREDIT")) {
-            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+        } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountIdDestination());
             checkingToUpdate.ifPresent(checking -> {
                 checking.setBalance(checking.getBalance().subtract(transferDTO.getAmount()));
                 checkingRepository.save(checking);
@@ -127,21 +164,21 @@ public class AccountHolderService {
 
     public void depositFunds(TransferDTO transferDTO) {
 
-        if(transferDTO.getAccountType().equals("CHECKING")||transferDTO.getAccountType().equals("STUDENT_CHECKING")){
-            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+        if(transferDTO.getAccountTypeDestination().equals("CHECKING")||transferDTO.getAccountTypeDestination().equals("STUDENT_CHECKING")){
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountIdDestination());
             checkingToUpdate.ifPresent(checking -> {
                 checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
                 checkingRepository.save(checking);
             });
 
-        } else if (transferDTO.getAccountType().equals("SAVING")) {
-            var savingToUpdate = savingRepository.findById(transferDTO.getAccountId());
+        } else if (transferDTO.getAccountTypeDestination().equals("SAVING")) {
+            var savingToUpdate = savingRepository.findById(transferDTO.getAccountIdDestination());
             savingToUpdate.ifPresent(saving -> {
                 saving.setBalance(saving.getBalance().add(transferDTO.getAmount()));
                 savingRepository.save(saving);
             });
-        } else if (transferDTO.getAccountType().equals("CREDIT")) {
-            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountId());
+        } else if (transferDTO.getAccountTypeDestination().equals("CREDIT")) {
+            var checkingToUpdate = checkingRepository.findById(transferDTO.getAccountIdDestination());
             checkingToUpdate.ifPresent(checking -> {
                 checking.setBalance(checking.getBalance().add(transferDTO.getAmount()));
                 checkingRepository.save(checking);

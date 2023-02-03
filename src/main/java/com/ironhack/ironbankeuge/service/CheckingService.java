@@ -36,7 +36,6 @@ public class CheckingService {
 //        checkingAccount.setSecondaryOwner();
         checkingAccount.setPenaltyFee(checkingDTO.getPenaltyFee());
         checkingAccount.setAccountStatus(AccountStatus.ACTIVE);
-        checkingAccount.getPrimaryOwner().getDateOfBirth();
 
         if(isStudent(accountHolderFound)){
             checkingAccount.setAccountType("STUDENT_CHECKING");
