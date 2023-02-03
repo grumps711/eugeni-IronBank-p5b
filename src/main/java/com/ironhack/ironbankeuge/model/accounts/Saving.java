@@ -22,12 +22,10 @@ import java.util.Date;
 public class Saving extends Account{
 
 //    default: 1000 Max: 1000 Min: 100
-    @NotNull
     @Value("${saving.minimum.balance:1000}")
     private BigDecimal minimumBalance;
 
 //    default: 0.0025 Max: 0.5 Min: -
-    @NotNull
     @Value("${saving.interest.rate:0.0025}")
     private BigDecimal interestRate;
 

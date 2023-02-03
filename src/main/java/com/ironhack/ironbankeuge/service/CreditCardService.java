@@ -22,7 +22,6 @@ public class CreditCardService {
         creditCard.setBalance(creditCardDTO.getBalance());
         creditCard.setPrimaryOwner(accountHolderFound);
 //        creditCard.setSecondaryOwner();
-        creditCard.setPenaltyFee(creditCardDTO.getPenaltyFee());
         creditCard.setAccountType("CREDIT");
 //        creditCard.setAccountStatus(AccountStatus.ACTIVE);
         creditCard.setCreditLimit(creditCardDTO.getCreditLimit());

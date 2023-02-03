@@ -35,7 +35,7 @@ public class Account {
     @NotNull
     private String accountType;
 
-    private BigDecimal penaltyFee;
+    private final BigDecimal penaltyFee = BigDecimal.valueOf(40);
 
     @ManyToOne
     @JsonIgnore
@@ -48,11 +48,10 @@ public class Account {
     @Enumerated
     private AccountStatus accountStatus;
 
-    public Account(String secretKey, String accountType, BigDecimal balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner) {
+    public Account(String secretKey, String accountType, BigDecimal balance, AccountHolder primaryOwner, AccountHolder secondaryOwner) {
         this.secretKey = secretKey;
         this.accountType = accountType;
         this.balance = balance;
-        this.penaltyFee = penaltyFee;
         this.primaryOwner = primaryOwner;
         this.secondaryOwner = secondaryOwner;
         this.accountStatus = AccountStatus.ACTIVE;

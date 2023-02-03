@@ -8,22 +8,18 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 @Entity
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Checking extends Account{
 
-    private BigDecimal minimumBalance;
+    private final BigDecimal minimumBalance = BigDecimal.valueOf(250);
 
-    private BigDecimal monthlyMaintenanceFee;
+    private final BigDecimal monthlyMaintenanceFee = BigDecimal.valueOf(12);
 
-    public Checking(String secretKey, String accountType, BigDecimal balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee) {
-        super(secretKey, "CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner);
-        this.minimumBalance = minimumBalance;
-        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
-    }
 }

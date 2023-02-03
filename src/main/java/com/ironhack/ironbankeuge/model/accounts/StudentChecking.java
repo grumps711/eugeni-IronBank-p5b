@@ -20,8 +20,8 @@ public class StudentChecking extends Account{
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
 
-    public StudentChecking(String secretKey, String accountType, BigDecimal balance, BigDecimal penaltyFee, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, AccountStatus accountStatus1) {
-        super(secretKey, "STUDENT_CHECKING", balance, penaltyFee, primaryOwner, secondaryOwner);
+    public StudentChecking(String secretKey, String accountType, BigDecimal balance, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus accountStatus, AccountStatus accountStatus1) {
+        super(secretKey, "STUDENT_CHECKING", balance, primaryOwner, secondaryOwner);
         this.accountStatus = accountStatus1;
     }
 }

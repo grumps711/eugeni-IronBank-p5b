@@ -24,7 +24,6 @@ public class SavingService {
         savingAccount.setSecretKey(savingDTO.getSecretKey());
         savingAccount.setBalance(savingDTO.getBalance());
         savingAccount.setPrimaryOwner(accountHolderFound);
-        savingAccount.setPenaltyFee(savingDTO.getPenaltyFee());
         savingAccount.setAccountType("SAVING");
         savingAccount.setInterestRate(savingDTO.getInterestRate());
         savingAccount.setMinimumBalance(savingDTO.getMinimumBalance());

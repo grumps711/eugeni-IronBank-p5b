@@ -34,15 +34,12 @@ public class CheckingService {
         checkingAccount.setBalance(checkingDTO.getBalance());
         checkingAccount.setPrimaryOwner(accountHolderFound);
 //        checkingAccount.setSecondaryOwner();
-        checkingAccount.setPenaltyFee(checkingDTO.getPenaltyFee());
         checkingAccount.setAccountStatus(AccountStatus.ACTIVE);
 
         if(isStudent(accountHolderFound)){
             checkingAccount.setAccountType("STUDENT_CHECKING");
         }   else{
             checkingAccount.setAccountType("CHECKING");
-            checkingAccount.setMinimumBalance(BigDecimal.valueOf(250));
-            checkingAccount.setMonthlyMaintenanceFee(BigDecimal.valueOf(12));
         }
 
         return checkingRepository.save(checkingAccount);
