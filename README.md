@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-
 # Final Project: Iron Banking System
 ![](final-cover.png)
 
@@ -333,6 +330,3 @@ Here are some tips to help you with the final project of an Ironhack Java Bootca
     
 
 Hope this tips help you in the process of the final project.
-=======
-# eugeni-IronBank-p5b
->>>>>>> da2ad2ab5fbb0db39bb0eb1441869bac7d05e3ce
