@@ -1,5 +1,6 @@
 package com.ironhack.ironbankeuge.model.users;
 
+import com.ironhack.ironbankeuge.DTO.usersDTO.AccountHolderDTO;
 import com.ironhack.ironbankeuge.model.accounts.Account;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -33,4 +34,6 @@ public class AccountHolder extends User {
         this.accountListAsPrimaryOwner = primaryOwnerAccountList;
     }
 
+    public AccountHolder(AccountHolderDTO accountHolderDTO1) {
+    }
 }

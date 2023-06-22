@@ -32,21 +32,4 @@ public class AccountHolderDTO extends UserDTO {
         this.secondaryAccountList = secondaryAccountList;
     }
 
-
-    public AccountHolderDTO fromEntity(AccountHolder accountHolder){
-        var accountHolderDTO = new AccountHolderDTO();
-//        user
-        accountHolderDTO.setFirstName(accountHolder.getFirstName());
-        accountHolderDTO.setLastName(accountHolder.getLastName());
-        accountHolderDTO.setUsername(accountHolder.getUsername());
-        accountHolderDTO.setPassword(accountHolder.getPassword());
-        accountHolderDTO.setRoles(accountHolder.getRoles());
-//        account-holder
-        accountHolderDTO.setDateOfBirth(accountHolder.getDateOfBirth());
-        accountHolderDTO.setPrimaryAddress(accountHolder.getPrimaryAddress());
-        accountHolderDTO.setMailingAddress(accountHolder.getMailingAddress());
-        accountHolderDTO.setAccountList(accountHolder.getAccountListAsPrimaryOwner());
-
-        return accountHolderDTO;
-    }
 }
